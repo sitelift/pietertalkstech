@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Badge } from "@/components/ui/badge";
@@ -64,18 +65,12 @@ const links = [
     icon: "🔌",
   },
   {
-    title: "Chirp",
-    description: "Free transcription app. Drag in any audio or video file and get a transcript.",
-    href: "https://apps.apple.com/app/chirp-transcription/id1603007837",
-    category: "App",
-    icon: "🐦",
-  },
-  {
     title: "The Log",
     description: "My fitness app. Track workouts without the noise — no social feeds, no AI coaches.",
-    href: "https://apps.apple.com/app/the-log-workout-tracker/id6504368881",
+    href: "https://apps.apple.com/us/app/the-log-workout-tracker/id6758683089",
     category: "My App",
-    icon: "🏋️",
+    icon: "/the-log-logo.png",
+    isImage: true,
   },
 ];
 
@@ -118,7 +113,11 @@ export default function LinksPage() {
                 >
                   <Card className="border-0 bg-white ring-1 ring-charcoal/5 transition-all duration-300 hover:ring-amber/25 hover:shadow-xl hover:shadow-amber/8">
                     <CardContent className="flex items-center gap-4 p-5">
-                      <span className="text-2xl shrink-0">{link.icon}</span>
+                      {link.isImage ? (
+                        <Image src={link.icon} alt={link.title} width={32} height={32} className="shrink-0 rounded-lg" />
+                      ) : (
+                        <span className="text-2xl shrink-0">{link.icon}</span>
+                      )}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
                           <h3 className="font-[var(--font-heading)] text-base font-semibold text-charcoal group-hover:text-amber transition-colors truncate">
