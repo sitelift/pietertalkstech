@@ -10,99 +10,138 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/motion";
-import { promptRepos, categories } from "@/data/prompts";
 
-export default function PromptsPage() {
+const links = [
+  {
+    title: "OpenCode",
+    description: "Free, open-source Cursor alternative. 130K+ GitHub stars, MIT license, runs in your terminal with 75+ AI models.",
+    href: "https://github.com/anomalyco/opencode",
+    category: "Tool",
+    icon: "💻",
+    isNew: true,
+  },
+  {
+    title: "RevenueCat 2026 Report",
+    description: "State of Subscription Apps — 338 pages of real pricing data. Apps that charge more actually convert better.",
+    href: "https://www.revenuecat.com/pdf/state-of-subscription-apps-2026-sosa.pdf",
+    category: "Report",
+    icon: "📊",
+    isNew: true,
+  },
+  {
+    title: "Fish Speech",
+    description: "Free ElevenLabs alternative on GitHub. Open-source voice cloning and text-to-speech.",
+    href: "https://github.com/fishaudio/fish-speech",
+    category: "Tool",
+    icon: "🎙️",
+  },
+  {
+    title: "Pocketbase",
+    description: "Your entire backend in one file. Auth, database, file storage — all in a single Go binary.",
+    href: "https://pocketbase.io",
+    category: "Tool",
+    icon: "🗄️",
+  },
+  {
+    title: "LTX Video",
+    description: "Free Sora alternative on GitHub. Open-source AI video generation.",
+    href: "https://github.com/Lightricks/LTX-Video",
+    category: "Tool",
+    icon: "🎬",
+  },
+  {
+    title: "Activepieces",
+    description: "Free Zapier alternative. Open-source automation platform you can self-host.",
+    href: "https://github.com/activepieces/activepieces",
+    category: "Tool",
+    icon: "⚡",
+  },
+  {
+    title: "Hoppscotch",
+    description: "Free Postman alternative. Open-source API development platform.",
+    href: "https://github.com/hoppscotch/hoppscotch",
+    category: "Tool",
+    icon: "🔌",
+  },
+  {
+    title: "Chirp",
+    description: "Free transcription app. Drag in any audio or video file and get a transcript.",
+    href: "https://apps.apple.com/app/chirp-transcription/id1603007837",
+    category: "App",
+    icon: "🐦",
+  },
+  {
+    title: "The Log",
+    description: "My fitness app. Track workouts without the noise — no social feeds, no AI coaches.",
+    href: "https://apps.apple.com/app/the-log-workout-tracker/id6504368881",
+    category: "My App",
+    icon: "🏋️",
+  },
+];
+
+export default function LinksPage() {
   return (
     <div className="min-h-screen bg-cream overflow-x-hidden">
       <Navbar />
 
       <section className="pt-28 pb-20 md:pt-36 md:pb-24">
-        <div className="mx-auto max-w-5xl px-6">
-          {/* Breadcrumb */}
+        <div className="mx-auto max-w-2xl px-6">
           <FadeIn>
             <div className="mb-8 flex items-center gap-2 text-sm text-warm-gray">
               <Link href="/" className="transition-colors hover:text-charcoal">
                 Home
               </Link>
               <span className="text-warm-gray/30">/</span>
-              <span className="text-charcoal font-medium">Prompts</span>
+              <span className="text-charcoal font-medium">Links</span>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.1}>
             <div className="max-w-2xl">
               <h1 className="font-[var(--font-heading)] text-4xl font-bold text-charcoal md:text-5xl">
-                Prompts & Systems
+                Links & Resources
               </h1>
               <p className="mt-4 text-base leading-relaxed text-warm-gray">
-                Every prompt and system I use, open-sourced on GitHub. Clone the
-                repo, make it yours, and build something better.
+                Every tool, report, and resource I mention in my videos. All free.
               </p>
             </div>
           </FadeIn>
 
-          {/* Categories */}
-          <FadeIn delay={0.2}>
-            <div className="mt-8 flex flex-wrap gap-2">
-              <Badge
-                variant="secondary"
-                className="bg-amber/10 text-amber-dark font-medium px-3 py-1 cursor-pointer"
-              >
-                All
-              </Badge>
-              {categories.map((cat) => (
-                <Badge
-                  key={cat}
-                  variant="outline"
-                  className="border-charcoal/10 text-warm-gray font-medium px-3 py-1 cursor-pointer hover:bg-sand/60 transition-colors"
+          <StaggerContainer className="mt-10 grid gap-3" staggerDelay={0.08}>
+            {links.map((link) => (
+              <StaggerItem key={link.title}>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block"
                 >
-                  {cat}
-                </Badge>
-              ))}
-            </div>
-          </FadeIn>
-
-          {/* Repo cards grid */}
-          <StaggerContainer className="mt-10 grid gap-4 sm:grid-cols-2" staggerDelay={0.1}>
-            {promptRepos.map((repo) => (
-              <StaggerItem key={repo.id}>
-                  <a
-                    href={repo.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block h-full"
-                  >
-                    <Card className="h-full border-0 bg-white ring-1 ring-charcoal/5 transition-all duration-300 hover:ring-amber/25 hover:shadow-xl hover:shadow-amber/8">
-                      <CardContent className="flex h-full flex-col p-6">
-                        <div className="flex items-start justify-between">
-                          <span className="text-2xl">{repo.icon}</span>
-                          <div className="rounded-full bg-charcoal/[0.03] p-2 text-warm-gray/50 transition-colors group-hover:bg-amber/10 group-hover:text-amber">
-                            <svg className="size-4" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                          </div>
+                  <Card className="border-0 bg-white ring-1 ring-charcoal/5 transition-all duration-300 hover:ring-amber/25 hover:shadow-xl hover:shadow-amber/8">
+                    <CardContent className="flex items-center gap-4 p-5">
+                      <span className="text-2xl shrink-0">{link.icon}</span>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-[var(--font-heading)] text-base font-semibold text-charcoal group-hover:text-amber transition-colors truncate">
+                            {link.title}
+                          </h3>
+                          {link.isNew && (
+                            <Badge className="bg-amber text-white text-[10px] px-1.5 py-0 font-medium shrink-0">
+                              NEW
+                            </Badge>
+                          )}
                         </div>
-                        <h3 className="mt-3 font-[var(--font-heading)] text-lg font-semibold text-charcoal group-hover:text-amber transition-colors">
-                          {repo.title}
-                        </h3>
-                        <p className="mt-2 flex-1 text-sm leading-relaxed text-warm-gray">
-                          {repo.description}
+                        <p className="mt-1 text-sm leading-relaxed text-warm-gray line-clamp-2">
+                          {link.description}
                         </p>
-                        <div className="mt-4 flex items-center justify-between">
-                          <Badge
-                            variant="secondary"
-                            className="bg-amber/8 text-amber-dark text-xs font-medium"
-                          >
-                            {repo.category}
-                          </Badge>
-                          <span className="font-[var(--font-code)] text-xs text-warm-gray/50">
-                            {repo.date}
-                          </span>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </a>
+                      </div>
+                      <div className="shrink-0 rounded-full bg-charcoal/[0.03] p-2 text-warm-gray/40 transition-colors group-hover:bg-amber/10 group-hover:text-amber">
+                        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </a>
               </StaggerItem>
             ))}
           </StaggerContainer>

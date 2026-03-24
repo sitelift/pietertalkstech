@@ -242,17 +242,16 @@ export default function Home() {
             <Link href="/prompts" className="group block">
               <div className="rounded-2xl bg-amber/10 px-8 py-8 transition-all duration-300 hover:bg-amber/20 md:px-12 md:py-10">
                 <p className="font-[var(--font-code)] text-xs font-medium uppercase tracking-widest text-amber">
-                  Open Source
+                  Resources
                 </p>
                 <h3 className="mt-3 font-[var(--font-heading)] text-2xl font-bold text-cream md:text-3xl">
-                  The systems behind everything I build
+                  Every tool and resource from my videos
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-cream/50 md:text-lg">
-                  Prompts, workflows, and frameworks — all free. Clone them,
-                  remix them, make them yours.
+                  Free tools, reports, and resources I actually use. All in one place.
                 </p>
                 <span className="mt-6 inline-flex items-center gap-2 font-[var(--font-code)] text-sm font-medium text-amber transition-all group-hover:gap-3">
-                  Browse prompts
+                  Browse links
                   <svg
                     className="size-4"
                     fill="none"

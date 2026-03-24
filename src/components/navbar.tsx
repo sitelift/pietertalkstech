@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Home, BookOpen, Code } from "lucide-react";
+import { Home, BookOpen, Link2 } from "lucide-react";
 import { NavBar } from "@/components/ui/tubelight-navbar";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Home", url: "/", icon: Home },
   { name: "Story", url: "/story", icon: BookOpen },
-  { name: "Open Source", url: "/prompts", icon: Code },
+  { name: "Links", url: "/prompts", icon: Link2 },
 ];
 
 export function Navbar({ variant = "light" }: { variant?: "light" | "dark" }) {
