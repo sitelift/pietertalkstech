@@ -239,7 +239,7 @@ export default function Home() {
       <section className="bg-warm-dark px-5 pb-20 md:px-6 md:pb-32">
         <div className="mx-auto max-w-4xl">
           <FadeIn>
-            <Link href="/prompts" className="group block">
+            <Link href="/links" className="group block">
               <div className="rounded-2xl bg-amber/10 px-8 py-8 transition-all duration-300 hover:bg-amber/20 md:px-12 md:py-10">
                 <p className="font-[var(--font-code)] text-xs font-medium uppercase tracking-widest text-amber">
                   Resources

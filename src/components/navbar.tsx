@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { name: "Home", url: "/", icon: Home },
   { name: "Story", url: "/story", icon: BookOpen },
-  { name: "Links", url: "/prompts", icon: Link2 },
+  { name: "Links", url: "/links", icon: Link2 },
 ];
 
 export function Navbar({ variant = "light" }: { variant?: "light" | "dark" }) {
